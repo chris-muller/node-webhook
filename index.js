@@ -1,5 +1,7 @@
 var config = require('./config.js');
 
+console.log(config);
+
 var githubhook = require('githubhook');
 var github = githubhook({port: config.server.port});
 
