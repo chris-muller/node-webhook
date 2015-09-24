@@ -1,12 +1,18 @@
+var config = require('./config.js');
+
 var githubhook = require('githubhook');
-var github = githubhook({
-	port: 81
-});
-var neutroncssGit = require('simple-git')('/var/www/neutroncss.com');
+var github = githubhook({port: config.server.port});
+
 
 github.listen();
 
-github.on('push:neutroncss.com:ref/heads/master', function (repo, ref, data) {
+var neutron = config.repo.neutron;
+github.on('push:' + neutron.name + ':ref/heads/' + neutron.branch, function (repo, ref, data) {
+	
+	var neutroncssGit = require('simple-git')(neutron.localPath);
+
+	console.log("Repo: ", repo);
 	neutroncssGit.pull();
+	
 });
 
