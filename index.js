@@ -12,7 +12,9 @@ github.on('*', function (event, repo, ref, data) {
 	
 	var neutroncssGit = require('simple-git')(neutron.localPath);
 
-	console.log("Repo: ", repo);
+	console.log("event: ", event);
+	console.log("repo: ", repo);
+	console.log("ref: ", ref);
 	
 	if(ref == "ref/heads/master" && repo == 'neutroncss.com') {
 		console.log('actually pulling data...');
