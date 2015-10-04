@@ -1,7 +1,7 @@
 module.exports = {
 	server: {
 		host: "45.55.33.156",
-		port: 81,
+		port: 80,
 		path: "/"
 	},
 	repo: {
