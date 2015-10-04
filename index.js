@@ -6,14 +6,19 @@ var neutron = config.repo.neutron;
 
 github.listen();
 
-github.on('push:' + neutron.name + ':ref/heads/' + neutron.branch, function (repo, ref, data) {
+github.on('*', function (event, repo, ref, data) {
 	
 	console.log("Push event received.");
 	
 	var neutroncssGit = require('simple-git')(neutron.localPath);
 
 	console.log("Repo: ", repo);
-	neutroncssGit.pull();
+	
+	if(ref == "ref/heads/master" && repo == 'neutroncss.com') {
+		console.log('actually pulling data...');
+		neutroncssGit.pull();
+	}
+
 	
 });
 
