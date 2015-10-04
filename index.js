@@ -14,11 +14,13 @@ github.on('*', function (event, repo, ref, data) {
 
 	console.log("event: ", event);
 	console.log("repo: ", repo);
-	console.log("ref: ", ref);
+	console.log("refs: ", ref);
 	
-	if(ref == "ref/heads/master" && repo == 'neutroncss.com') {
+	if(ref == "refs/heads/master" && repo == 'neutroncss.com') {
 		console.log('actually pulling data...');
 		neutroncssGit.pull();
+	} else {
+		console.log("This is not the repo I am looking for...");
 	}
 
 	
