@@ -1,6 +1,6 @@
 module.exports = {
 	server: {
-		host: "45.55.33.156",
+		host: "127.0.0.1",
 		port: 80,
 		path: "/"
 	},
