@@ -7,12 +7,12 @@ module.exports = {
 	deployments: {
 		"Neutron Master": {
 			repo: "neutroncss.com",
-			branch: "master",
+			branch: "refs/heads/master",
 			localPath: "/var/www/neutroncss.com"
 		},
 		"Neutron Develop" : {
 			repo: "neutroncss.com",
-			branch: "develop",
+			branch: "refs/remotes/origin/develop",
 			localPath: "/var/www/develop.neutroncss.com"
 		}
 	}

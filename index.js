@@ -15,7 +15,7 @@ for(var deploymentIndex in config.deployments) {
 			
 			var git = require('simple-git')(deployment.localPath);
 			
-			if(ref == "refs/heads/"+deployment.branch && repo == deployment.repo) {
+			if(ref == deployment.branch && repo == deployment.repo) {
 				console.log('Pulling data for '+deployment.repo);
 				git.pull();
 			}
