@@ -8,7 +8,7 @@ github.listen();
 for (var i = 0; i < config.deployments.length; i++) {
 	var deployment = config.deployments[i];
 
-	github.on('push', function (event, repo, ref, data) {
+	github.on('push', function (repo, ref, data) {
 
 		var git = require('simple-git')(deployment.localPath);
 	
