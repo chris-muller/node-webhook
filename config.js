@@ -4,11 +4,16 @@ module.exports = {
 		port: 3000,
 		path: "/"
 	},
-	repo: {
-		neutron: {
-			name: "neutroncss.com",
+	deployments: {
+		"Neutron Master": {
+			repo: "neutroncss.com",
 			branch: "master",
 			localPath: "/var/www/neutroncss.com"
+		},
+		"Neutron Develop" : {
+			repo: "neutroncss.com",
+			branch: "develop",
+			localPath: "/var/www/develop.neutroncss.com"
 		}
 	}
 };
