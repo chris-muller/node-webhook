@@ -12,12 +12,15 @@ for(var deploymentIndex in config.deployments) {
 		
 		console.log('Setting listener for '+deployment.repo);
 		github.on('*', function (event, repo, ref, data) {
+			console.log('Listener called for '+deployment.repo);
 			
 			var git = require('simple-git')(deployment.localPath);
 			
 			if(ref == deployment.branch && repo == deployment.repo) {
 				console.log('Pulling data for '+deployment.repo);
 				git.pull();
+			} else {
+				console.log('Skipped: repo '+deployment.repo + " - branch " + deployment.branch);
 			}
 		});
 	}
