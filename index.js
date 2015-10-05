@@ -20,7 +20,7 @@ for(var deploymentIndex in config.deployments) {
 				console.log('Pulling data for '+deployment.repo);
 				git.pull();
 			} else {
-				console.log(deploymentIndex + 'skipped: repo '+deployment.repo + " - branch " + deployment.branch);
+				console.log(deploymentIndex + ' skipped: repo '+deployment.repo + " - branch " + deployment.branch);
 			}
 		});
 	}
