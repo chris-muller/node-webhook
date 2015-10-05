@@ -5,11 +5,11 @@ var github = githubhook({host: config.server.host, port: config.server.port, pat
 
 github.listen();
 
-for (var i = 0; i < config.deployments.length; i++) {
-	var deployment = config.deployments[i];
-
+console.log('Starting listener loop.');
+config.deployments.forEach(function(deployment) {
+	console.log('Setting listener for '+deployment.repo);
 	github.on('*', function (event, repo, ref, data) {
-		console.log('Setting listener for '+deployment.repo);
+
 		var git = require('simple-git')(deployment.localPath);
 	
 		if(ref == "refs/heads/"+deployment.branch && repo == deployment.repo) {
@@ -17,4 +17,4 @@ for (var i = 0; i < config.deployments.length; i++) {
 			git.pull();
 		}
 	});
-}
+}, this);
