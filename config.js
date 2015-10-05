@@ -12,7 +12,7 @@ module.exports = {
 		},
 		"Neutron Develop" : {
 			repo: "neutroncss.com",
-			branch: "refs/remotes/origin/develop",
+			branch: "refs/heads/develop",
 			localPath: "/var/www/develop.neutroncss.com"
 		}
 	}
