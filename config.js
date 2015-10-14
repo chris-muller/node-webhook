@@ -5,15 +5,13 @@ module.exports = {
 		path: "/"
 	},
 	deployments: {
-		"Neutron Master": {
-			repo: "neutroncss.com",
-			branch: "refs/heads/master",
-			localPath: "/var/www/neutroncss.com"
-		},
-		"Neutron Develop" : {
-			repo: "neutroncss.com",
-			branch: "refs/heads/develop",
-			localPath: "/var/www/develop.neutroncss.com"
+		"neutroncss.com": {
+			"refs/heads/master": {
+				localPath: "/var/www/neutroncss.com"
+			},
+			"refs/heads/develop": {
+				localPath: "/var/www/develop.neutroncss.com"
+			}
 		}
 	}
 };
