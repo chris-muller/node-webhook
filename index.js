@@ -7,7 +7,7 @@ github.listen();
 github.on('*', pullGitRepo);
 
 function pullGitRepo(event, repo, ref, data) {
-	var localPath = config[repo][ref].localPath;
+	var localPath = config.deployments[repo][ref].localPath;
 
 	if (localPath) {
 		console.log('Deploying for repo "' + repo + '" with ref "' + ref + '".');		var git = require('simple-git')(localPath);
