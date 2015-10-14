@@ -7,6 +7,7 @@ github.listen();
 github.on('*', pullGitRepo);
 
 function pullGitRepo(event, repo, ref, data) {
+	try {
 	var localPath = config.deployments[repo][ref].localPath;
 
 	if (localPath) {
@@ -14,5 +15,8 @@ function pullGitRepo(event, repo, ref, data) {
 		git.pull();
 	} else {
 		console.log('No deployment found for repo "' + repo + '" with ref "' + ref + '".');
+	}
+	} catch (error) {
+		console.log('Exception occurred:', error);
 	}
 }
